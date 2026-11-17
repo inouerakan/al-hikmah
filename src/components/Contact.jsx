@@ -2,12 +2,12 @@ export default function Contact() {
   return (
     <section
       id="program-pilot"
-      className="relative w-full min-h-[85vh] sm:min-h-screen bg-[#050C08] bg-gradient-to-b from-[#06140D] via-[#050C08] to-[#030705] text-white py-24 sm:py-32 px-6 sm:px-8 lg:px-16 flex flex-col justify-between overflow-hidden font-ibm select-none"
+      className="relative w-full min-h-[85vh] sm:min-h-screen bg-[#08140E] text-white py-24 sm:py-32 px-6 sm:px-8 lg:px-16 flex flex-col justify-between overflow-hidden font-ibm select-none"
     >
-      {/* Background Subtle Ambient Glow */}
+      {/* Background Subtle Ambient Glow (Seamless with Features & FeatureChat) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-32 right-1/4 w-[32rem] h-[32rem] bg-emerald-600/10 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-32 left-10 w-[28rem] h-[28rem] bg-[#E55338]/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/3 -right-28 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/3 -left-28 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl"></div>
       </div>
 
       {/* Main Hero Contact Content (Matching anfalova.art layout) */}

@@ -7,7 +7,7 @@ import Contact from "./components/Contact"
 
 export default function App() {
   return (
-    <div className="overflow-x-hidden relative">
+    <div className="overflow-x-hidden relative bg-[#08140E]">
       <Navbar />
       <Hero />
       <AiChatHook />

@@ -42,7 +42,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative w-screen h-screen max-h-screen overflow-hidden bg-[#0E9F6E] text-white flex flex-col justify-center pt-16 sm:pt-20 font-ibm select-none pb-36"
+      className="relative w-screen h-screen max-h-screen overflow-hidden bg-[#0E9F6E] text-white flex flex-col justify-center pt-16 sm:pt-20 font-ibm select-none pb-18"
     >
       {/* Background Soft Glow Accents */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

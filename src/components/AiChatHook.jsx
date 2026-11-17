@@ -67,13 +67,13 @@ export default function AiChatHook() {
   return (
     <section
       id="tanya-ai"
-      className="relative w-full py-24 sm:py-32 px-6 sm:px-8 lg:px-12 bg-gradient-to-b from-[#0E9F6E] via-[#0C885E] to-[#07160F] text-white flex flex-col items-center justify-center font-ibm select-none overflow-hidden"
+      className="relative w-full py-24 sm:py-32 px-6 sm:px-8 lg:px-12 bg-gradient-to-b from-[#0E9F6E] via-[#0B6B48] to-[#08140E] text-white flex flex-col items-center justify-center font-ibm select-none overflow-hidden"
     >
       <span id="faq" className="absolute -top-20"></span>
       {/* Background Soft Glow Accents (Smoothly blended) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-1/3 -right-28 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 -left-28 w-96 h-96 bg-emerald-950/30 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/3 -left-28 w-96 h-96 bg-emerald-950/30 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative z-10 max-w-4xl w-full mx-auto flex flex-col items-center text-center">

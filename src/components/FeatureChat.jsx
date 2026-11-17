@@ -97,18 +97,18 @@ export default function FeatureChat() {
     <section
       id="cara-kerja"
       ref={sectionRef}
-      className="relative w-full min-h-screen bg-[#07160F] bg-gradient-to-b from-[#091C13] to-[#06140D] text-white py-20 lg:py-28 px-6 sm:px-8 lg:px-16 flex items-center justify-center overflow-hidden font-ibm select-none"
+      className="relative w-full min-h-screen bg-[#08140E] text-white py-20 lg:py-28 px-6 sm:px-8 lg:px-16 flex items-center justify-center overflow-hidden font-ibm select-none"
     >
       {/* Ambient Lighting Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/3 -left-28 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/3 -right-28 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl"></div>
       </div>
 
       {/* Decorative Islamic Crescent Element (peeking from left edge like the sushi in YumLog) */}
       <div
         ref={decorRef}
-        className="absolute -bottom-8 -left-8 sm:-left-4 w-36 h-36 sm:w-48 sm:h-48 pointer-events-none z-10 opacity-80"
+        className="absolute top-1/2 -translate-y-1/2 left-0 sm:left-2 w-36 h-36 sm:w-44 sm:h-44 pointer-events-none z-10 opacity-75"
       >
         <svg
           viewBox="0 0 200 200"

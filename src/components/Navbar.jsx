@@ -22,7 +22,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 font-ibm ${
         isScrolled
-          ? "bg-[#07160F]/90 backdrop-blur-xl border-b border-white/10 shadow-lg py-3 sm:py-3.5"
+          ? "bg-[#08140E]/90 backdrop-blur-xl border-b border-white/10 shadow-lg py-3 sm:py-3.5"
           : "bg-[#0E9F6E]/40 backdrop-blur-md py-4 sm:py-5 border-b border-white/5"
       }`}
     >

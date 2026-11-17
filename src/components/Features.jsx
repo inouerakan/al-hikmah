@@ -30,19 +30,12 @@ export default function Features() {
   return (
     <section
       id="fitur"
-      className="relative w-full py-20 lg:py-28 bg-[#07160F] bg-gradient-to-b from-[#091D13] via-[#07160F] to-[#06140D] text-white font-ibm overflow-hidden select-none"
+      className="relative w-full py-20 lg:py-28 bg-[#08140E] text-white font-ibm overflow-hidden select-none"
     >
-      {/* Background Ambient Lighting & Subtle Dark Dot Grid */}
+      {/* Background Ambient Lighting (Seamless with FeatureChat & Contact) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 -right-32 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 -left-32 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl"></div>
-        <div
-          className="absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage: `radial-gradient(#FFFFFF 1.2px, transparent 1.2px)`,
-            backgroundSize: "28px 28px",
-          }}
-        ></div>
+        <div className="absolute top-1/3 -right-28 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/3 -left-28 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
