@@ -1,1 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Asimovian&family=IBM+Plex+Sans+JP&display=swap');
 @import "tailwindcss";
+
+@theme {
+  /* Primary Colors */
+  --color-primary-base: #0E9F6E;
+  --color-primary-hover: #057A55;
+  --color-primary-surface: #ECFDF5;
+
+  /* Accent Colors */
+  --color-accent-base: #D97706;
+  --color-accent-surface: #FEF3C7;
+
+  /* Neutral Colors */
+  --color-neutral-black: #0F172A;
+  --color-neutral-white: #FFFFFF;
+  --color-neutral-gray-700: #475569;
+  --color-neutral-gray-300: #CBD5E1;
+  --color-neutral-gray-50: #F8FAFC;
+
+  --font-ibm: "IBM Plex Sans", sans-serif;
+  --font-asimovian: "Asimovian";
+}
