@@ -1,9 +1,79 @@
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
+import gsap from "gsap"
 
 export default function AiChatHook() {
+  const sectionRef = useRef(null)
   const [inputValue, setInputValue] = useState("")
   const [isAnswering, setIsAnswering] = useState(false)
   const [activeAnswer, setActiveAnswer] = useState(null)
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    if (prefersReducedMotion) return
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 88%",
+          once: true,
+        },
+        defaults: { ease: "power2.out" },
+      })
+
+      tl.from(".ai-badge", {
+        opacity: 0,
+        y: 12,
+        scale: 0.96,
+        duration: 0.35,
+        clearProps: "all",
+      })
+        .from(
+          ".ai-headline",
+          {
+            opacity: 0,
+            y: 18,
+            duration: 0.4,
+            clearProps: "all",
+          },
+          "-=0.25"
+        )
+        .from(
+          ".ai-desc",
+          {
+            opacity: 0,
+            y: 14,
+            duration: 0.35,
+            clearProps: "all",
+          },
+          "-=0.25"
+        )
+        .from(
+          ".ai-input-box",
+          {
+            opacity: 0,
+            y: 20,
+            scale: 0.98,
+            duration: 0.45,
+            clearProps: "all",
+          },
+          "-=0.25"
+        )
+        .from(
+          ".ai-pill",
+          {
+            opacity: 0,
+            y: 10,
+            stagger: 0.05,
+            duration: 0.35,
+            clearProps: "all",
+          },
+          "-=0.25"
+        )
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
 
   // Quick suggested questions (mirroring DeepSeek's bottom 3 pills)
   const sampleQuestions = [
@@ -67,38 +137,39 @@ export default function AiChatHook() {
   return (
     <section
       id="tanya-ai"
-      className="relative w-full py-24 sm:py-32 px-6 sm:px-8 lg:px-12 bg-gradient-to-b from-[#0E9F6E] via-[#0B6B48] to-[#08140E] text-white flex flex-col items-center justify-center font-ibm select-none overflow-hidden"
+      ref={sectionRef}
+      className="relative w-full py-24 sm:py-32 px-6 sm:px-8 lg:px-12 bg-gradient-to-b from-surface via-surface via-65% to-bg-base text-text-main flex flex-col items-center justify-center font-ibm select-none overflow-hidden"
     >
       <span id="faq" className="absolute -top-20"></span>
-      {/* Background Soft Glow Accents (Smoothly blended) */}
+      {/* Background Soft Glow Accents */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/3 -right-28 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/3 -left-28 w-96 h-96 bg-emerald-950/30 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/3 -right-28 w-96 h-96 bg-accent-200/40 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/3 -left-28 w-96 h-96 bg-primary-100/40 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative z-10 max-w-4xl w-full mx-auto flex flex-col items-center text-center">
         
         {/* Top Announcement Badge (Mirroring DeepSeek's V4.1 Update Card) */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 backdrop-blur-md text-emerald-100 text-xs sm:text-sm font-semibold border border-white/20 mb-6 shadow-sm hover:bg-white/20 transition-all cursor-pointer group">
-          <span className="text-amber-300">✦</span>
+        <div className="ai-badge inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card text-text-muted text-xs sm:text-sm font-semibold border border-card-border mb-6 shadow-xs hover:bg-bg-base transition-colors cursor-pointer group">
+          <span className="text-accent-500">✦</span>
           <span>
             Asisten AI Al-Hikmah terhubung dengan Kitab Hadits Shahih & Fikih Ramadan
           </span>
-          <span className="text-amber-300 group-hover:translate-x-1 transition-transform">→</span>
+          <span className="text-primary-600 group-hover:translate-x-1 transition-transform">→</span>
         </div>
 
         {/* Headline (Mirroring DeepSeek's 'Into the Unknown') */}
-        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-black text-white tracking-tight leading-[1.08] mb-4 font-ibm">
+        <h2 className="ai-headline text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-black text-text-main tracking-tight leading-[1.08] mb-4 font-asimovian">
           Tanya Apa Saja Seputar Islam
         </h2>
 
         {/* Subtitle Paragraph */}
-        <p className="text-base sm:text-lg lg:text-xl text-emerald-50/90 leading-relaxed font-normal max-w-2xl mb-8 sm:mb-10">
+        <p className="ai-desc text-base sm:text-lg lg:text-xl text-text-muted leading-relaxed font-normal max-w-2xl mb-8 sm:mb-10 font-ibm">
           Konsultasikan keraguan fikih puasa, sholat tarawih, adab harian, hingga doa sesuai sunnah langsung dengan Asisten Cerdas Al-Hikmah.
         </p>
 
         {/* Central Chat Input Container (Matching DeepSeek Chat Box) */}
-        <div className="w-full max-w-2xl bg-white rounded-[28px] sm:rounded-[36px] p-4 sm:p-5 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.35)] text-slate-800 border border-emerald-100/60 relative flex flex-col justify-between mb-8 transition-all">
+        <div className="ai-input-box w-full max-w-2xl bg-card rounded-[28px] sm:rounded-[36px] p-4 sm:p-5 shadow-lg text-text-main border border-card-border relative flex flex-col justify-between mb-8">
           
           {/* Text Input Area */}
           <form onSubmit={handleSubmit} className="w-full">
@@ -108,18 +179,18 @@ export default function AiChatHook() {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder="Tanyakan fikih shaum, tarawih, doa, atau uzur..."
-                className="w-full bg-transparent text-slate-800 placeholder-slate-400 text-sm sm:text-base px-2 py-3 focus:outline-none font-medium leading-relaxed"
+                className="w-full bg-transparent text-text-main placeholder:text-text-muted/60 text-sm sm:text-base px-2 py-3 focus:outline-none font-medium leading-relaxed font-ibm"
               />
             </div>
 
             {/* Bottom Bar inside Input Box */}
-            <div className="flex items-center justify-end pt-3 mt-2 border-t border-slate-100">
+            <div className="flex items-center justify-end pt-3 mt-2 border-t border-card-border/60">
 
               {/* Right Submit Button (Circular button with upward arrow like DeepSeek) */}
               <button
                 type="submit"
                 disabled={isAnswering}
-                className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#0E9F6E] hover:bg-[#0A7A53] text-white flex items-center justify-center shadow-md hover:shadow-lg transition-transform hover:scale-105 active:scale-95 flex-shrink-0 disabled:opacity-50"
+                className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-primary-600 hover:bg-primary-700 text-white flex items-center justify-center shadow-md hover:shadow-lg transition-transform hover:scale-105 active:scale-95 flex-shrink-0 disabled:opacity-50"
                 aria-label="Kirim pertanyaan"
               >
                 {isAnswering ? (
@@ -139,11 +210,11 @@ export default function AiChatHook() {
 
           {/* Interactive AI Answer Result Box (Appears smoothly below) */}
           {activeAnswer && (
-            <div className="mt-4 pt-4 border-t border-emerald-100 text-left bg-emerald-50/70 rounded-2xl p-4 text-xs sm:text-sm text-slate-700 leading-relaxed animate-in fade-in slide-in-from-top-2 duration-300">
-              <div className="flex items-center gap-2 mb-1.5 text-emerald-800 font-bold text-xs uppercase tracking-wider">
+            <div className="mt-4 pt-4 border-t border-card-border/60 text-left bg-primary-50 border border-primary-200 rounded-2xl p-4 text-xs sm:text-sm text-text-main leading-relaxed animate-in fade-in slide-in-from-top-2 duration-300">
+              <div className="flex items-center gap-2 mb-1.5 text-primary-600 font-bold text-xs uppercase tracking-wider font-ibm">
                 <span>🤖 Jawaban Asisten AI Al-Hikmah:</span>
               </div>
-              <p className="font-normal text-slate-800">{activeAnswer}</p>
+              <p className="font-normal text-text-main font-ibm">{activeAnswer}</p>
             </div>
           )}
 
@@ -155,10 +226,9 @@ export default function AiChatHook() {
             <button
               key={sample.id}
               onClick={() => handleSelectSample(sample)}
-              className="group inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 active:bg-white/30 backdrop-blur-md text-white border border-white/25 px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all hover:-translate-y-0.5 shadow-sm text-left"
+              className="ai-pill group inline-flex items-center gap-2 bg-card hover:bg-bg-base active:bg-surface text-text-muted hover:text-primary-600 border border-card-border px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-colors hover:-translate-y-0.5 shadow-xs text-left font-ibm"
             >
-              {/* <span className="text-sm">{sample.icon}</span> */}
-              <span className="group-hover:text-amber-200 transition-colors">
+              <span className="group-hover:text-primary-600 transition-colors">
                 {sample.text}
               </span>
             </button>

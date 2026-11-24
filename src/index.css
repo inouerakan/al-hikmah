@@ -1,23 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Asimovian&family=IBM+Plex+Sans+JP&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asimovian&family=IBM+Plex+Sans+JP:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  /* Primary Colors */
-  --color-primary-base: #0E9F6E;
-  --color-primary-hover: #057A55;
-  --color-primary-surface: #ECFDF5;
+  /* Latar & Permukaan */
+  --color-bg-base: #F8F5F0;
+  --color-surface: #EDE6DD;
+  --color-surface-elevated: #EDE6DD;
 
-  /* Accent Colors */
-  --color-accent-base: #D97706;
-  --color-accent-surface: #FEF3C7;
+  /* Kartu & Border */
+  --color-card: #FFFFFF;
+  --color-card-border: #DDD3C8;
 
-  /* Neutral Colors */
-  --color-neutral-black: #0F172A;
-  --color-neutral-white: #FFFFFF;
-  --color-neutral-gray-700: #475569;
-  --color-neutral-gray-300: #CBD5E1;
-  --color-neutral-gray-50: #F8FAFC;
+  /* Tipografi Teks */
+  --color-text-main: #1B1416;
+  --color-text-muted: #6B615B;
 
-  --font-ibm: "IBM Plex Sans", sans-serif;
-  --font-asimovian: "Asimovian";
+  /* Primer Marun (skala 50–950, 600 dasar: #6E1F2F) */
+  --color-primary-50: #FDF2F4;
+  --color-primary-100: #FBE4E8;
+  --color-primary-200: #F7CCD3;
+  --color-primary-300: #F0A5B2;
+  --color-primary-400: #E57388;
+  --color-primary-500: #9E2D43;
+  --color-primary-600: #6E1F2F;
+  --color-primary-700: #5A1926;
+  --color-primary-800: #48141F;
+  --color-primary-900: #360F17;
+  --color-primary-950: #230A0F;
+
+  /* Aksen Emas (skala accent-*, teks kecil accent-600 ke atas, accent-500 untuk ikon/hiasan) */
+  --color-accent-50: #FFFDF5;
+  --color-accent-100: #FEF9E3;
+  --color-accent-200: #FDF1C2;
+  --color-accent-300: #FCE496;
+  --color-accent-400: #F9D361;
+  --color-accent-500: #E6B82E;
+  --color-accent-600: #B88B14;
+  --color-accent-700: #8F690B;
+  --color-accent-800: #6B4D08;
+  --color-accent-900: #4D3605;
+  --color-accent-950: #302102;
+
+  /* Tipografi Resmi */
+  --font-ibm: "IBM Plex Sans JP", "IBM Plex Sans", sans-serif;
+  --font-asimovian: "Asimovian", sans-serif;
 }
